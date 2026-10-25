@@ -436,8 +436,9 @@ export class ToothSceneManager {
   async tryLoadExternalGLB() {
     try {
       const loader = new GLTFLoader();
+      const modelUrl = `${import.meta.env.BASE_URL || '/'}models/tooth.glb`.replace(/\/+/g, '/');
       loader.load(
-        '/models/tooth.glb',
+        modelUrl,
         (gltf) => {
           let foundMesh = null;
           gltf.scene.traverse((child) => {
