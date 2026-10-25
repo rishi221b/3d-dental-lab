@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- SEO Meta Tags -->
+    <title>Sculpted Smiles | Digital Dental Laboratory</title>
+    <meta
+      name="description"
+      content="Digital dental laboratory solutions combining CAD/CAM design, digital workflows, prosthetics, orthodontic appliances and precision manufacturing."
+    />
+    <meta name="keywords" content="digital dental laboratory, CAD/CAM dentistry, 3D printed splints, zirconia crowns, dental prosthetics, intraoral scan processing" />
+    <meta name="author" content="Sculpted Smiles" />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sculpted Smiles | Digital Dental Laboratory" />
+    <meta
+      property="og:description"
+      content="Precision crafted for modern dentistry. Digital workflows, CAD/CAM design, and master dental craftsmanship."
+    />
+    <meta property="og:image" content="/favicon.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Skip to Main Content Link for Screen Readers -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Full-screen Continuous 3D Dental Laboratory Environment -->
+    <div id="lab-canvas-container" class="lab-canvas-container" aria-hidden="true"></div>
+
+
+
+    <!-- Equipment Hotspot Tooltip -->
+    <div id="hotspot-tooltip" class="hotspot-tooltip" role="tooltip" aria-hidden="true">
+      <div class="tooltip-header">
+        <span class="tooltip-pulse-dot" aria-hidden="true"></span>
+        <span id="tooltip-title" class="tooltip-title">EQUIPMENT STATION</span>
+      </div>
+      <p id="tooltip-desc" class="tooltip-desc">Technical specifications &amp; workflow details.</p>
+    </div>
+
+    <!-- Preloader -->
+    <div id="app-preloader" class="app-preloader" aria-live="polite" aria-busy="true">
+      <div class="preloader-content">
+        <div class="preloader-mark">
+          <svg viewBox="0 0 48 48" class="preloader-logo-icon" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="48" height="48" rx="12" fill="#0B132B"/>
+            <path d="M14 17C14 13.5 17 11 20 11C22 11 23 12 24 13C25 12 26 11 28 11C31 11 34 13.5 34 17C34 22 32 27 30 33C29 36 26.5 37 25 35C24.3 34 24 31 24 29C24 31 23.7 34 23 35C21.5 37 19 36 18 33C16 27 14 22 14 17Z" fill="url(#plGrad)"/>
+            <defs>
+              <linearGradient id="plGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0284C7"/>
+                <stop offset="100%" stop-color="#06B6D4"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <h2 class="preloader-title">SCULPTED SMILES</h2>
+        <div class="preloader-status-row">
+          <span class="preloader-pulse-dot" aria-hidden="true"></span>
+          <p class="preloader-status-text">Preparing digital workspace...</p>
+        </div>
+        <div class="preloader-bar-track">
+          <div class="preloader-bar-fill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="site-header" role="banner">
+      <div class="nav-container">
+        <!-- Brand Logo -->
+        <a href="#" class="brand-logo" aria-label="Sculpted Smiles Home">
+          <div class="brand-mark-wrapper">
+            <svg viewBox="0 0 36 36" fill="none" class="brand-mark-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="36" height="36" rx="9" fill="#0F172A"/>
+              <path d="M10 13C10 10.5 12.5 8.5 15 8.5C16.8 8.5 17.5 9.5 18 10C18.5 9.5 19.2 8.5 21 8.5C23.5 8.5 26 10.5 26 13C26 17 24.5 21 23 25.5C22.2 27.5 20.2 28.5 19 26.5C18.4 25.5 18 23 18 21.5C18 23 17.6 25.5 17 26.5C15.8 28.5 13.8 27.5 13 25.5C11.5 21 10 17 10 13Z" fill="url(#navLogoGrad)"/>
+              <circle cx="18" cy="16.5" r="1.5" fill="#FFFFFF"/>
+              <defs>
+                <linearGradient id="navLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#0284C7"/>
+                  <stop offset="100%" stop-color="#06B6D4"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="brand-text">SCULPTED SMILES</span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="main-navigation" role="navigation" aria-label="Main menu">
+          <ul class="nav-links" id="primary-menu">
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#technology" class="nav-link">Technology</a></li>
+            <li><a href="#process" class="nav-link">Process</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#case-inquiry" class="nav-link">Contact</a></li>
+            <li class="mobile-only-cta">
+              <a href="#case-inquiry" class="btn btn-primary btn-mobile-cta">Start a Case</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="nav-actions">
+          <a href="#case-inquiry" class="btn btn-primary nav-action-btn">
+            <span>Start a Case</span>
+            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3.33 8H12.67M12.67 8L8.67 4M12.67 8L8.67 12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button
+            type="button"
+            class="mobile-menu-toggle"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="primary-menu"
+          >
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main id="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section" id="hero" aria-label="Introduction">
+        <div class="hero-backdrop-glow" aria-hidden="true"></div>
+        <div class="hero-grid-pattern" aria-hidden="true"></div>
+
+        <div class="site-container hero-container">
+          <!-- Left Column: Copy & Calls to Action -->
+          <div class="hero-content reveal-on-scroll">
+            <div class="hero-eyebrow">
+              <span class="eyebrow-dot" aria-hidden="true"></span>
+              <span>DIGITAL DENTAL LABORATORY</span>
+            </div>
+
+            <h1 class="hero-heading">
+              Precision crafted for <span class="gradient-text">modern dentistry.</span>
+            </h1>
+
+            <p class="hero-lead">
+              We combine digital workflows, advanced manufacturing and experienced dental technicians to create precise solutions for modern clinics.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#case-inquiry" class="btn btn-primary btn-lg">
+                <span>Start a Case</span>
+                <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3.33 8H12.67M12.67 8L8.67 4M12.67 8L8.67 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+
+              <a href="#services" class="btn btn-secondary btn-lg">
+                <span>Explore Our Services</span>
+              </a>
+            </div>
+
+            <!-- Trust Statement -->
+            <div class="hero-trust-statement">
+              <svg class="trust-check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Digital workflow &bull; CAD/CAM &bull; 3D manufacturing</span>
+            </div>
+          </div>
+
+          <!-- 3D Tooth Experience -->
+          <div class="hero-viewport-column reveal-on-scroll">
+            <div class="three-viewport-card" id="dental-viewport-card">
+              <!-- Top Viewport Control Bar -->
+              <div class="viewport-header">
+                <div class="viewport-badge">
+                  <span class="live-dot" aria-hidden="true"></span>
+                  <span id="viewport-stage-label">INTERACTIVE 3D CAD</span>
+                </div>
+
+                <!-- Stage Mode Selectors -->
+                <div class="stage-pills-row" role="tablist" aria-label="Dental restoration workflow stage">
+                  <button type="button" class="stage-pill-btn" data-mode="scan" role="tab" aria-selected="false">
+                    Scan
+                  </button>
+                  <button type="button" class="stage-pill-btn" data-mode="design" role="tab" aria-selected="false">
+                    CAD
+                  </button>
+                  <button type="button" class="stage-pill-btn" data-mode="print" role="tab" aria-selected="false">
+                    Print
+                  </button>
+                  <button type="button" class="stage-pill-btn active" data-mode="finish" role="tab" aria-selected="true">
+                    Zirconia
+                  </button>
+                </div>
+              </div>
+
+              <!-- Canvas Mount Element -->
+              <div class="three-canvas-mount" id="tooth-canvas-container">
+                <!-- Viewport Canvas -->
+              </div>
+
+              <!-- Interactive Viewport Footer HUD -->
+              <div class="viewport-hud-footer">
+                <div class="hud-telemetry">
+                  <span class="hud-item">
+                    <span class="hud-label">ROTATION:</span>
+                    <span class="hud-val" id="hud-angle-val">035&deg;</span>
+                  </span>
+                  <span class="hud-divider">&bull;</span>
+                  <span class="hud-item">
+                    <span class="hud-label">TOLERANCE:</span>
+                    <span class="hud-val">&plusmn;12&mu;m</span>
+                  </span>
+                  <span class="hud-divider">&bull;</span>
+                  <span class="hud-item">
+                    <span class="hud-label">ACCURACY:</span>
+                    <span class="hud-val text-cyan">VERIFIED</span>
+                  </span>
+                </div>
+
+                <div class="hud-controls">
+                  <button type="button" class="hud-btn" id="btn-toggle-rotate" title="Toggle automatic rotation" aria-label="Toggle auto rotation">
+                    <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                      <path d="M14 8A6 6 0 1 1 8 2M14 2v6h-6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Auto</span>
+                  </button>
+                  <button type="button" class="hud-btn" id="btn-reset-view" title="Reset camera orientation" aria-label="Reset 3D camera angle">
+                    <span>Reset</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Drag gesture hint -->
+              <div class="viewport-hint" aria-hidden="true">
+                <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12">
+                  <path d="M8 1a1 1 0 0 1 1 1v2.5a.5.5 0 0 0 1 0V3a1 1 0 0 1 2 0v5.5a.5.5 0 0 0 1 0V5a1 1 0 0 1 2 0v5a5.5 5.5 0 1 1-11 0V4a1 1 0 0 1 2 0v3.5a.5.5 0 0 0 1 0V2a1 1 0 0 1 1-1h1z"/>
+                </svg>
+                <span>Drag to inspect model &bull; Click tabs to switch workflow</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Scanning Bay -->
+      <section class="tour-section tour-section--left" id="scanning-bay" aria-label="Scanning Bay">
+        <div class="tour-container">
+          <div class="tour-grid">
+            <div class="tour-content-col" id="services">
+              <div class="tour-card reveal-on-scroll">
+                <div class="tour-badge">
+                  <span class="tour-badge-dot" aria-hidden="true"></span>
+                  <span>02 SCANNING BAY</span>
+                </div>
+                <h2 class="tour-heading">Digital Ingestion &amp; Solutions</h2>
+                <p class="tour-lead">
+                  From digital scan to finished appliance &mdash; every stage is designed around precision. Sculpted Smiles works alongside dental practices to turn digital case data into carefully designed and manufactured dental solutions.
+                </p>
+
+                <!-- Three Value Proposition Metric Cards -->
+                <div class="tour-mini-grid">
+                  <article class="stat-badge-card reveal-on-scroll">
+                    <div class="card-icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon" aria-hidden="true">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <h3 class="stat-card-title">Digital First</h3>
+                    <p class="stat-card-desc">
+                      Seamless digital ingestion designed for modern intraoral scanners with open STL, PLY, and DICOM workflows.
+                    </p>
+                  </article>
+
+                  <article class="stat-badge-card reveal-on-scroll">
+                    <div class="card-icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon" aria-hidden="true">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <h3 class="stat-card-title">Technician Reviewed</h3>
+                    <p class="stat-card-desc">
+                      Every digital design is evaluated, calibrated, and refined by certified dental technicians before production begins.
+                    </p>
+                  </article>
+
+                  <article class="stat-badge-card reveal-on-scroll">
+                    <div class="card-icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="card-icon" aria-hidden="true">
+                        <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </div>
+                    <h3 class="stat-card-title">Quality Controlled</h3>
+                    <p class="stat-card-desc">
+                      High-magnification marginal fit assessment and digital verification protocols prior to clinical dispatch.
+                    </p>
+                  </article>
+                </div>
+
+                <div class="tour-services-strip">
+                  <span class="tour-strip-label">Supported Ingestion Formats:</span>
+                  <div class="service-tags">
+                    <span class="tag-pill">Intraoral STL</span>
+                    <span class="tag-pill">PLY Color</span>
+                    <span class="tag-pill">DICOM CBCT</span>
+                    <span class="tag-pill">Medit / iTero / 3Shape</span>
+                  </div>
+                </div>
+
+                <div class="tour-actions">
+                  <a href="#case-inquiry" class="btn btn-primary btn-sm">Start a Case</a>
+                  <a href="#cad-design" class="service-action-link" aria-label="Next stop: CAD Design">
+                    <span>Next: CAD Design &rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="tour-env-spacer" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CAD Design -->
+      <section class="tour-section tour-section--right" id="cad-design" aria-label="CAD Design">
+        <div class="tour-container">
+          <div class="tour-grid">
+            <div class="tour-env-spacer" aria-hidden="true"></div>
+
+            <div class="tour-content-col" id="technology">
+              <div class="tour-card reveal-on-scroll">
+                <div class="tour-badge">
+                  <span class="tour-badge-dot" aria-hidden="true"></span>
+                  <span>03 CAD DESIGN</span>
+                </div>
+                <h2 class="tour-heading">Digital Precision, Backed by Craftsmanship</h2>
+                <p class="tour-lead">
+                  Convert clinical data into carefully considered digital designs using advanced CAD/CAM workflows. Follow our restorative and prosthetic design pipeline.
+                </p>
+
+                <div class="tour-services-grid">
+                  <article class="service-card reveal-on-scroll">
+                    <div class="service-card-inner">
+                      <div class="service-icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="service-svg" aria-hidden="true">
+                          <circle cx="12" cy="12" r="3"/>
+                          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                        </svg>
+                      </div>
+                      <h3 class="service-name">Digital Dentistry</h3>
+                      <p class="service-desc">
+                        Digital case workflows, scan processing and CAD/CAM design designed to simplify the journey from intraoral scan to production.
+                      </p>
+                      <div class="service-tags">
+                        <span class="tag-pill">Intraoral Ingestion</span>
+                        <span class="tag-pill">CAD Design</span>
+                        <span class="tag-pill">Mesh Prep</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="service-card reveal-on-scroll">
+                    <div class="service-card-inner">
+                      <div class="service-icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="service-svg" aria-hidden="true">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                          <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z"/>
+                        </svg>
+                      </div>
+                      <h3 class="service-name">Prosthetics</h3>
+                      <p class="service-desc">
+                        Custom dental prosthetic solutions including dentures, crowns, bridges and implant-supported restorations.
+                      </p>
+                      <div class="service-tags">
+                        <span class="tag-pill">Monolithic Zirconia</span>
+                        <span class="tag-pill">Bridges</span>
+                        <span class="tag-pill">Implant Hybrids</span>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- Design Tab -->
+                <div class="tour-stage-tab-wrap">
+                  <div
+                    class="tech-stage-card"
+                    data-stage="design"
+                    role="tab"
+                    tabindex="0"
+                    aria-selected="false"
+                    aria-label="Stage 2: DESIGN - CAD design and margin ditching"
+                  >
+                    <div class="stage-step-badge">STAGE 02</div>
+                    <div class="stage-icon-circle">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                        <polyline points="2 17 12 22 22 17"/>
+                        <polyline points="2 12 12 17 22 12"/>
+                      </svg>
+                    </div>
+                    <h3 class="stage-title">DESIGN</h3>
+                    <p class="stage-desc">
+                      Convert clinical data into carefully considered digital designs using CAD/CAM workflows.
+                    </p>
+                    <div class="stage-action-tip">Inspect CAD Mode &rarr;</div>
+                  </div>
+                </div>
+
+                <div class="tour-actions">
+                  <a href="#case-inquiry" class="btn btn-primary btn-sm">Explore Digital Workflow</a>
+                  <a href="#printing-bay" class="service-action-link" aria-label="Next stop: 3D Printing">
+                    <span>Next: 3D Printing &rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3D Printing -->
+      <section class="tour-section tour-section--left" id="printing-bay" aria-label="3D Printing">
+        <div class="tour-container">
+          <div class="tour-grid">
+            <div class="tour-content-col">
+              <div class="tour-card reveal-on-scroll">
+                <div class="tour-badge">
+                  <span class="tour-badge-dot" aria-hidden="true"></span>
+                  <span>04 3D PRINTING</span>
+                </div>
+                <h2 class="tour-heading">Precision Additive Manufacturing</h2>
+                <p class="tour-lead">
+                  Use precision additive manufacturing for selected models, appliances and production workflows. SLA and DLP light-curing technology guarantees biocompatibility and micrometer tolerances.
+                </p>
+
+                <div class="tour-services-grid">
+                  <article class="service-card reveal-on-scroll">
+                    <div class="service-card-inner">
+                      <div class="service-icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="service-svg" aria-hidden="true">
+                          <path d="M3 12h18M3 6h18M3 18h18" stroke-linecap="round" stroke-linejoin="round"/>
+                          <circle cx="8" cy="6" r="2"/>
+                          <circle cx="16" cy="12" r="2"/>
+                          <circle cx="10" cy="18" r="2"/>
+                        </svg>
+                      </div>
+                      <h3 class="service-name">Orthodontics</h3>
+                      <p class="service-desc">
+                        Digitally designed orthodontic appliances, retainers and treatment-support solutions tailored to individual cases.
+                      </p>
+                      <div class="service-tags">
+                        <span class="tag-pill">Clear Retainers</span>
+                        <span class="tag-pill">Aligner Models</span>
+                        <span class="tag-pill">IBT Staging</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <article class="service-card reveal-on-scroll">
+                    <div class="service-card-inner">
+                      <div class="service-icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="service-svg" aria-hidden="true">
+                          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
+                      <h3 class="service-name">Splints &amp; Appliances</h3>
+                      <p class="service-desc">
+                        Precision-designed occlusal splints and protective dental appliances manufactured from digital case data.
+                      </p>
+                      <div class="service-tags">
+                        <span class="tag-pill">Nightguards</span>
+                        <span class="tag-pill">Occlusal Splints</span>
+                        <span class="tag-pill">3D Bio-Resin</span>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- Print Tab -->
+                <div class="tour-stage-tab-wrap">
+                  <div
+                    class="tech-stage-card"
+                    data-stage="print"
+                    role="tab"
+                    tabindex="0"
+                    aria-selected="false"
+                    aria-label="Stage 3: PRINT - Additive manufacturing"
+                  >
+                    <div class="stage-step-badge">STAGE 03</div>
+                    <div class="stage-icon-circle">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="3" y1="9" x2="21" y2="9"/>
+                        <line x1="9" y1="21" x2="9" y2="9"/>
+                      </svg>
+                    </div>
+                    <h3 class="stage-title">PRINT</h3>
+                    <p class="stage-desc">
+                      Use precision additive manufacturing for selected models, appliances and production workflows.
+                    </p>
+                    <div class="stage-action-tip">Inspect 3D Print &rarr;</div>
+                  </div>
+                </div>
+
+                <div class="tour-actions">
+                  <a href="#case-inquiry" class="btn btn-primary btn-sm">Explore Additive Workflow</a>
+                  <a href="#zirconia-mill" class="service-action-link" aria-label="Next stop: Zirconia Mill">
+                    <span>Next: Zirconia Mill &rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="tour-env-spacer" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Zirconia Milling -->
+      <section class="tour-section tour-section--right" id="zirconia-mill" aria-label="Zirconia Mill">
+        <div class="tour-container">
+          <div class="tour-grid">
+            <div class="tour-env-spacer" aria-hidden="true"></div>
+
+            <div class="tour-content-col" id="why-heading">
+              <div class="tour-card reveal-on-scroll">
+                <div class="tour-badge">
+                  <span class="tour-badge-dot" aria-hidden="true"></span>
+                  <span>05 ZIRCONIA MILL</span>
+                </div>
+                <h2 class="tour-heading">Built Around the Details That Matter</h2>
+                <p class="tour-lead">
+                  Every restoration balances high-precision digital scanning with hands-on technical validation and 5-axis ultra-precision dry &amp; wet milling.
+                </p>
+
+                <div class="tour-mini-grid tour-mini-grid-2">
+                  <article class="feature-card reveal-on-scroll">
+                    <div class="feature-icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="22" y1="12" x2="18" y2="12"/>
+                        <line x1="6" y1="12" x2="2" y2="12"/>
+                        <line x1="12" y1="6" x2="12" y2="2"/>
+                        <line x1="12" y1="22" x2="12" y2="18"/>
+                      </svg>
+                    </div>
+                    <h3 class="feature-title">Precision</h3>
+                    <p class="feature-desc">
+                      Digital workflows help us work from detailed case information and maintain consistency throughout production.
+                    </p>
+                  </article>
+
+                  <article class="feature-card reveal-on-scroll">
+                    <div class="feature-icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon" aria-hidden="true">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                      </svg>
+                    </div>
+                    <h3 class="feature-title">Communication</h3>
+                    <p class="feature-desc">
+                      Clear communication between clinic and laboratory keeps case requirements visible from submission through delivery.
+                    </p>
+                  </article>
+
+                  <article class="feature-card reveal-on-scroll">
+                    <div class="feature-icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon" aria-hidden="true">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                        <line x1="8" y1="21" x2="16" y2="21"/>
+                        <line x1="12" y1="17" x2="12" y2="21"/>
+                      </svg>
+                    </div>
+                    <h3 class="feature-title">Technology</h3>
+                    <p class="feature-desc">
+                      Modern scanning, CAD/CAM and additive manufacturing technologies support an efficient digital workflow.
+                    </p>
+                  </article>
+
+                  <article class="feature-card reveal-on-scroll">
+                    <div class="feature-icon-wrapper">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="feature-icon" aria-hidden="true">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                      </svg>
+                    </div>
+                    <h3 class="feature-title">Craftsmanship</h3>
+                    <p class="feature-desc">
+                      Technology supports the process, but experienced technicians remain essential to the final result.
+                    </p>
+                  </article>
+                </div>
+
+                <!-- Finish Tab -->
+                <div class="tour-stage-tab-wrap">
+                  <div
+                    class="tech-stage-card active"
+                    data-stage="finish"
+                    role="tab"
+                    tabindex="0"
+                    aria-selected="true"
+                    aria-label="Stage 4: FINISH - Glazing and quality control"
+                  >
+                    <div class="stage-step-badge">STAGE 04</div>
+                    <div class="stage-icon-circle">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                      </svg>
+                    </div>
+                    <h3 class="stage-title">FINISH</h3>
+                    <p class="stage-desc">
+                      Inspect, refine and prepare every case before it leaves the laboratory.
+                    </p>
+                    <div class="stage-action-tip">Inspect Glazed Ceramic &rarr;</div>
+                  </div>
+                </div>
+
+                <div class="tour-actions">
+                  <a href="#case-inquiry" class="btn btn-primary btn-sm">Explore Zirconia Restorations</a>
+                  <a href="#quality-qc" class="service-action-link" aria-label="Next stop: Quality QC">
+                    <span>Next: Quality Control &rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quality Control -->
+      <section class="tour-section tour-section--left" id="quality-qc" aria-label="Quality Control">
+        <div class="tour-container">
+          <div class="tour-grid">
+            <div class="tour-content-col" id="process">
+              <div class="tour-card reveal-on-scroll">
+                <div class="tour-badge">
+                  <span class="tour-badge-dot" aria-hidden="true"></span>
+                  <span>06 QUALITY QC</span>
+                </div>
+                <h2 class="tour-heading">One Connected Workflow</h2>
+                <p class="tour-lead">
+                  A transparent four-step pathway from your intraoral scanner to final clinical seating. Technology should make dentistry simpler.
+                </p>
+
+                <div class="timeline-wrapper reveal-on-scroll">
+                  <div class="timeline-track" aria-hidden="true">
+                    <div class="timeline-progress-fill"></div>
+                  </div>
+
+                  <div class="timeline-steps-grid">
+                    <div class="timeline-step step-active" data-step-index="1">
+                      <div class="step-marker">
+                        <span class="step-num">01</span>
+                      </div>
+                      <div class="step-body">
+                        <h3 class="step-title">Submit</h3>
+                        <p class="step-desc">Send the digital scan and prescription details.</p>
+                      </div>
+                    </div>
+
+                    <div class="timeline-step" data-step-index="2">
+                      <div class="step-marker">
+                        <span class="step-num">02</span>
+                      </div>
+                      <div class="step-body">
+                        <h3 class="step-title">Review</h3>
+                        <p class="step-desc">Our team reviews the case information and identifies any requirements before production.</p>
+                      </div>
+                    </div>
+
+                    <div class="timeline-step" data-step-index="3">
+                      <div class="step-marker">
+                        <span class="step-num">03</span>
+                      </div>
+                      <div class="step-body">
+                        <h3 class="step-title">Manufacture</h3>
+                        <p class="step-desc">The approved design moves into the appropriate manufacturing workflow.</p>
+                      </div>
+                    </div>
+
+                    <div class="timeline-step" data-step-index="4">
+                      <div class="step-marker">
+                        <span class="step-num">04</span>
+                      </div>
+                      <div class="step-body">
+                        <h3 class="step-title">Quality Check</h3>
+                        <p class="step-desc">The completed case is inspected and prepared for delivery.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tour-qc-standards" id="about">
+                  <div class="about-highlights-row">
+                    <div class="highlight-item">
+                      <span class="highlight-bullet">&bull;</span>
+                      <span>Class 10,000 Clean Manufacturing</span>
+                    </div>
+                    <div class="highlight-item">
+                      <span class="highlight-bullet">&bull;</span>
+                      <span>5-Axis Ultra-Precision Dry &amp; Wet Milling</span>
+                    </div>
+                    <div class="highlight-item">
+                      <span class="highlight-bullet">&bull;</span>
+                      <span>Biocompatible Medical Grade Certifications</span>
+                    </div>
+                  </div>
+
+                  <div class="schematic-badge" style="margin-top: 16px;">
+                    <span>MICRON FIT ACCURACY</span>
+                    <strong>&plusmn; 0.012 mm</strong>
+                  </div>
+                </div>
+
+                <div class="tour-actions">
+                  <a href="#case-inquiry" class="btn btn-primary btn-sm">Request Case Spec</a>
+                  <a href="#dispatch-area" class="service-action-link" aria-label="Next stop: Dispatch">
+                    <span>Next: Logistics &amp; Dispatch &rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="tour-env-spacer" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dispatch -->
+      <section class="tour-section tour-section--right" id="dispatch-area" aria-label="Dispatch Area">
+        <div class="tour-container">
+          <div class="tour-grid">
+            <div class="tour-env-spacer" aria-hidden="true"></div>
+
+            <div class="tour-content-col" id="case-inquiry">
+              <div class="tour-card tour-card--dark reveal-on-scroll">
+                <div class="tour-badge">
+                  <span class="tour-badge-dot" aria-hidden="true"></span>
+                  <span>07 DISPATCH</span>
+                </div>
+                <h2 class="tour-heading">Have a case in mind?</h2>
+                <p class="tour-lead">
+                  Tell us what you're working on and our team can help you determine the right laboratory workflow. Case preparation and direct clinical dispatch.
+                </p>
+
+                <!-- Case Submission Form -->
+                <div class="case-form-wrapper" style="padding: 0; background: transparent; border: none; box-shadow: none; max-width: 100%;">
+                  <div class="notice-badge-bar" role="note">
+                    <svg viewBox="0 0 20 20" fill="currentColor" width="16" height="16" class="notice-info-icon" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Direct Portal: Client-side validated. No patient health identifiers (PHI) required for inquiry.</span>
+                  </div>
+
+                  <form id="case-inquiry-form" class="case-form" novalidate aria-label="Digital case submission form">
+                    <div class="form-row form-row-2">
+                      <div class="form-group">
+                        <label for="name" class="form-label">
+                          Clinician / Practitioner Name <span class="required-star">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          id="name"
+                          name="name"
+                          class="form-control"
+                          placeholder="e.g. Dr. Julian Reed"
+                          required
+                          autocomplete="name"
+                        />
+                        <span class="form-error" id="name-error" role="alert" aria-live="polite"></span>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="clinic" class="form-label">
+                          Clinic / Practice Name <span class="required-star">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          id="clinic"
+                          name="clinic"
+                          class="form-control"
+                          placeholder="e.g. Apex Dental Specialists"
+                          required
+                          autocomplete="organization"
+                        />
+                        <span class="form-error" id="clinic-error" role="alert" aria-live="polite"></span>
+                      </div>
+                    </div>
+
+                    <div class="form-row form-row-2">
+                      <div class="form-group">
+                        <label for="email" class="form-label">
+                          Clinical Email <span class="required-star">*</span>
+                        </label>
+                        <input
+                          type="email"
+                          id="email"
+                          name="email"
+                          class="form-control"
+                          placeholder="practitioner@clinic.com"
+                          required
+                          autocomplete="email"
+                        />
+                        <span class="form-error" id="email-error" role="alert" aria-live="polite"></span>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="phone" class="form-label">
+                          Contact Phone <span class="required-star">*</span>
+                        </label>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          class="form-control"
+                          placeholder="+1 (555) 019-2834"
+                          required
+                          autocomplete="tel"
+                        />
+                        <span class="form-error" id="phone-error" role="alert" aria-live="polite"></span>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="service" class="form-label">
+                        Primary Service Workflow <span class="required-star">*</span>
+                      </label>
+                      <div class="select-wrapper">
+                        <select id="service" name="service" class="form-control select-control" required>
+                          <option value="" disabled selected>Select a restoration or appliance workflow...</option>
+                          <option value="Prosthetics: Monolithic Zirconia Crown / Bridge">Prosthetics: Monolithic Zirconia Crown / Bridge</option>
+                          <option value="Prosthetics: Implant-Supported Restoration">Prosthetics: Implant-Supported Restoration</option>
+                          <option value="Digital Dentistry: Scan Processing & CAD Design">Digital Dentistry: Scan Processing &amp; CAD Design</option>
+                          <option value="Orthodontics: Clear Retainers / Models">Orthodontics: Clear Retainers / Models</option>
+                          <option value="Splints: Precision Occlusal Nightguard">Splints: Precision Occlusal Nightguard</option>
+                          <option value="General Clinical Inquiry">General Clinical Inquiry</option>
+                        </select>
+                      </div>
+                      <span class="form-error" id="service-error" role="alert" aria-live="polite"></span>
+                    </div>
+
+                    <!-- File Dropzone -->
+                    <div class="form-group">
+                      <label class="form-label" id="dropzone-label">
+                        Attach Intraoral Scan Data (Optional)
+                      </label>
+                      <div
+                        class="scan-dropzone"
+                        id="scan-dropzone"
+                        tabindex="0"
+                        role="button"
+                        aria-labelledby="dropzone-label"
+                      >
+                        <input
+                          type="file"
+                          id="scan-file-input"
+                          class="file-input-hidden"
+                          multiple
+                          accept=".stl,.ply,.dcm,.zip"
+                        />
+                        <div class="dropzone-content">
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="dropzone-icon" aria-hidden="true">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                          <p class="dropzone-primary-text">
+                            <strong>Click to browse</strong> or drag &amp; drop scan files
+                          </p>
+                          <p class="dropzone-hint">
+                            Accepts open STL, PLY, DICOM (.dcm), or zipped clinical cases
+                          </p>
+                        </div>
+                      </div>
+                      <div id="scan-file-list" class="scan-file-list" aria-live="polite"></div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="message" class="form-label">
+                        Case Notes &amp; Clinical Instructions
+                      </label>
+                      <textarea
+                        id="message"
+                        name="message"
+                        class="form-control textarea-control"
+                        rows="3"
+                        placeholder="Specify tooth numbers (#14, #19), shade specifications (e.g. VITA A2), occlusal clearance requirements, or design preferences..."
+                      ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit-case">
+                      <span>Submit Digital Case</span>
+                      <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M3.33 8H12.67M12.67 8L8.67 4M12.67 8L8.67 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </button>
+                  </form>
+
+                  <!-- Success Card -->
+                  <div id="form-success-card" class="form-success-card is-hidden" tabindex="-1" role="region" aria-live="assertive">
+                    <div class="success-icon-badge">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="success-check-svg" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"/>
+                      </svg>
+                    </div>
+                    <h3 class="success-heading">Case Prescription Received</h3>
+                    <p class="success-sub">
+                      Your digital case prescription has been received and queued for clinical review.
+                    </p>
+
+                    <div class="success-spec-table">
+                      <div class="spec-row">
+                        <span class="spec-label">Case Reference:</span>
+                        <strong class="spec-val text-cyan" id="success-case-ref">SS-2026-8942</strong>
+                      </div>
+                      <div class="spec-row">
+                        <span class="spec-label">Practitioner &amp; Clinic:</span>
+                        <span class="spec-val" id="success-clinic-name">Dr. Reed — Apex Dental</span>
+                      </div>
+                      <div class="spec-row">
+                        <span class="spec-label">Workflow:</span>
+                        <span class="spec-val" id="success-service-name">Prosthetics: Monolithic Zirconia</span>
+                      </div>
+                      <div class="spec-row">
+                        <span class="spec-label">Attachments:</span>
+                        <span class="spec-val" id="success-files-count">Scan data attached</span>
+                      </div>
+                      <div class="spec-row">
+                        <span class="spec-label">Ingestion Status:</span>
+                        <span class="spec-val status-verified">Pre-Flight Review Queued</span>
+                      </div>
+                    </div>
+
+                    <p class="success-dispatch-notice" id="success-email-notice">
+                      Confirmation dispatch queued for clinician.
+                    </p>
+
+                    <button type="button" id="reset-case-form-btn" class="btn btn-secondary btn-reset-form">
+                      Submit Another Case
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="site-container footer-container">
+        <div class="footer-top-row">
+          <div class="footer-brand-col">
+            <div class="footer-brand-mark">
+              <svg viewBox="0 0 32 32" fill="none" class="brand-mark-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="32" height="32" rx="8" fill="#0284C7"/>
+                <path d="M9 11.5C9 9 11 7.5 13.5 7.5C15 7.5 15.5 8.5 16 9C16.5 8.5 17 7.5 18.5 7.5C21 7.5 23 9 23 11.5C23 15 21.5 18.5 20.5 22.5C19.8 24.5 18 25 17 23.5C16.5 22.5 16 20.5 16 19C16 20.5 15.5 22.5 15 23.5C14 25 12.2 24.5 11.5 22.5C10.5 18.5 9 15 9 11.5Z" fill="#FFFFFF"/>
+              </svg>
+              <span class="footer-brand-name">SCULPTED SMILES</span>
+            </div>
+            <p class="footer-tagline">"Precision crafted for modern dentistry."</p>
+            <p class="footer-desc">
+              A modern digital dental laboratory combining skilled technicians with digital scanning, CAD/CAM design, precision manufacturing, and 3D printing.
+            </p>
+          </div>
+
+          <nav class="footer-nav-col" aria-label="Footer Navigation">
+            <h4 class="footer-nav-title">Navigation</h4>
+            <ul class="footer-links-list">
+              <li><a href="#services" class="footer-link">Services</a></li>
+              <li><a href="#technology" class="footer-link">Technology</a></li>
+              <li><a href="#process" class="footer-link">Process</a></li>
+              <li><a href="#about" class="footer-link">About</a></li>
+              <li><a href="#case-inquiry" class="footer-link">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer-tech-col">
+            <h4 class="footer-nav-title">Digital Formats</h4>
+            <p class="footer-tech-desc">
+              Direct cloud ingestion for open intraoral scans:
+            </p>
+            <div class="footer-format-badges">
+              <span class="format-badge">.STL</span>
+              <span class="format-badge">.PLY</span>
+              <span class="format-badge">.DCM</span>
+              <span class="format-badge">3SHAPE</span>
+              <span class="format-badge">MEDIT</span>
+              <span class="format-badge">iTERO</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom-row">
+          <p class="footer-copyright">&copy; 2026 Sculpted Smiles. All rights reserved.</p>
+          <div class="footer-meta-notes">
+            <span>Precision Medical Aesthetics &bull; Three.js Interactive Architecture</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Main JavaScript Entrypoint -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
